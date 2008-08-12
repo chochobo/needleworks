@@ -77,6 +77,73 @@
     }
 }
 
+/*
+- (void)printDocument:(id)sender {
+	NSPrintInfo* printinfo = [NSPrintInfo sharedPrintInfo];
+	[printinfo setHorizontalPagination:NSFitPagination];
+	[printinfo setVerticalPagination:NSFitPagination];
+	[printinfo setHorizontallyCentered:YES];
+	[printinfo setVerticallyCentered:YES];
+	
+	[printinfo setTopMargin: 0.0f];
+	[printinfo setBottomMargin: 0.0f];
+	[printinfo setRightMargin: 7.0f];
+	[printinfo setLeftMargin: 7.0f];
+	if ([self bounds].size.height < [self bounds].size.width) {
+		[printinfo setOrientation:NSLandscapeOrientation];
+	} else {
+		[printinfo setOrientation:NSPortraitOrientation];
+	}
+
+	
+    // Assume documentView returns the custom view to be printed
+    NSPrintOperation *op = [NSPrintOperation
+							printOperationWithView:self //[self documentView]
+							printInfo:printinfo];//[self printInfo]];
+	[op runOperation];
+
+    /*[op runOperationModalForWindow:self //[self documentWindow]
+						  delegate:self
+					didRunSelector:
+	 @selector(printOperationDidRun:success:contextInfo:)
+					   contextInfo:NULL];
+}*/
+/*
+- (void)printOperationDidRun:(NSPrintOperation *)printOperation
+					 success:(BOOL)success
+				 contextInfo:(void *)info {
+    if (success) {
+        // Can save updated NSPrintInfo, but only if you have
+        // a specific reason for doing so
+        // [self setPrintInfo: [printOperation printInfo]];
+    }
+}
+*/
+
+/*
+- (void) print:(id)sender {
+	NSPrintInfo* printinfo = [NSPrintInfo sharedPrintInfo];
+	[printinfo setHorizontalPagination:NSFitPagination];
+	[printinfo setVerticalPagination:NSFitPagination];
+	[printinfo setHorizontallyCentered:YES];
+	[printinfo setVerticallyCentered:YES];
+	
+	[printinfo setTopMargin: 0.0f];
+	[printinfo setBottomMargin: 0.0f];
+	[printinfo setRightMargin: 7.0f];
+	[printinfo setLeftMargin: 7.0f];
+	if ([self bounds].size.height < [self bounds].size.width) {
+		[printinfo setOrientation:NSLandscapeOrientation];
+	} else {
+		[printinfo setOrientation:NSPortraitOrientation];
+	}
+
+	NSPrintOperation* printOperation = [NSPrintOperation printOperationWithView:self printInfo:printinfo];
+		[printOperation runOperationModalForWindow: [self window]
+						delegate: nil didRunSelector: nil contextInfo: nil];
+		
+}*/
+
 /* We want to draw with (0, 0) at the top left */
 - (BOOL) isFlipped {
 	return YES;

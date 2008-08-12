@@ -296,6 +296,18 @@
 	return YES;
 }
 
+- (NSPrintOperation *)printOperationWithSettings:(NSDictionary *)printSettings error:(NSError **)outError {
+	NSPrintInfo* printInfo = [NSPrintInfo sharedPrintInfo];
+	[printInfo setHorizontalPagination:NSFitPagination];
+	[printInfo setVerticalPagination:NSFitPagination];
+	[printInfo setHorizontallyCentered:YES];
+	[printInfo setVerticallyCentered:YES];
+		
+	NSPrintOperation* op = [NSPrintOperation printOperationWithView:_mainView printInfo:printInfo];
+	
+	return op;
+}
+
 - (NSPoint) minPoint {
 	return _min;
 }
