@@ -20,7 +20,7 @@
 				<string>.pes</string>
 			</array>
 			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
+			<string>Viewer</string>
 			<key>NSDocumentClass</key>
 			<string>MyDocument</string>
 		</dict>
@@ -40,10 +40,14 @@
 	<key>CFBundleSignature</key>
 	<string>NDWX</string>
 	<key>CFBundleVersion</key>
-	<string>0.1</string>
+	<string>0.2</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.2</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.5</string>
 </dict>
 </plist>
