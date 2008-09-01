@@ -7,39 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1DDD582C0DA1D0D100B32029 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58280DA1D0D100B32029 /* MyDocument.xib */; };
-		1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD582A0DA1D0D100B32029 /* MainMenu.xib */; };
-		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
-		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
-		8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
-		9413E9410E50282B00CA0B4A /* NWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9413E9400E50282B00CA0B4A /* NWAppDelegate.m */; };
-		941BA0940E41957E001ED6C7 /* NWStitchBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 941BA0930E41957E001ED6C7 /* NWStitchBlock.m */; };
-		94B257BD0E36F84600A5CBA6 /* NWView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B257BB0E36F84600A5CBA6 /* NWView.m */; };
+		94028B7F0E67C308001CD6B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94028B7D0E67C308001CD6B0 /* AppDelegate.m */; };
+		94028B820E67C314001CD6B0 /* DesignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94028B800E67C314001CD6B0 /* DesignView.m */; };
+		94028B850E67C323001CD6B0 /* InspectorPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94028B830E67C323001CD6B0 /* InspectorPanelController.m */; };
+		94028B880E67C32F001CD6B0 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 94028B870E67C32F001CD6B0 /* MyDocument.m */; };
+		94028B8B0E67C33E001CD6B0 /* StitchBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 94028B8A0E67C33E001CD6B0 /* StitchBlock.m */; };
+		94028B930E67C3D9001CD6B0 /* InspectorPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94028B910E67C3D9001CD6B0 /* InspectorPanel.xib */; };
+		94028B960E67C3E5001CD6B0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94028B940E67C3E5001CD6B0 /* MainMenu.xib */; };
+		94028B990E67C3F0001CD6B0 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94028B970E67C3F0001CD6B0 /* MyDocument.xib */; };
+		94028CC20E6BB060001CD6B0 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 94028CC00E6BB060001CD6B0 /* Credits.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
-		1DDD58290DA1D0D100B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MyDocument.xib; sourceTree = "<group>"; };
-		1DDD582B0DA1D0D100B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDocument.m; sourceTree = "<group>"; };
-		2A37F4AEFDCFA73011CA2CEA /* MyDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDocument.h; sourceTree = "<group>"; };
 		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32DBCF750370BD2300C91783 /* Needle Works_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Needle Works_Prefix.pch"; sourceTree = "<group>"; };
-		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* Needle Works.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Needle Works.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9413E93F0E50282B00CA0B4A /* NWAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWAppDelegate.h; sourceTree = "<group>"; };
-		9413E9400E50282B00CA0B4A /* NWAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWAppDelegate.m; sourceTree = "<group>"; };
-		941BA0920E41957E001ED6C7 /* NWStitchBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWStitchBlock.h; sourceTree = "<group>"; };
-		941BA0930E41957E001ED6C7 /* NWStitchBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWStitchBlock.m; sourceTree = "<group>"; };
-		94B257BB0E36F84600A5CBA6 /* NWView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWView.m; sourceTree = "<group>"; };
-		94B257BC0E36F84600A5CBA6 /* NWView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWView.h; sourceTree = "<group>"; };
+		94028B7D0E67C308001CD6B0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		94028B7E0E67C308001CD6B0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		94028B800E67C314001CD6B0 /* DesignView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignView.m; sourceTree = "<group>"; };
+		94028B810E67C314001CD6B0 /* DesignView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignView.h; sourceTree = "<group>"; };
+		94028B830E67C323001CD6B0 /* InspectorPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InspectorPanelController.m; sourceTree = "<group>"; };
+		94028B840E67C323001CD6B0 /* InspectorPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InspectorPanelController.h; sourceTree = "<group>"; };
+		94028B860E67C32F001CD6B0 /* MyDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDocument.h; sourceTree = "<group>"; };
+		94028B870E67C32F001CD6B0 /* MyDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDocument.m; sourceTree = "<group>"; };
+		94028B890E67C33E001CD6B0 /* StitchBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StitchBlock.h; sourceTree = "<group>"; };
+		94028B8A0E67C33E001CD6B0 /* StitchBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StitchBlock.m; sourceTree = "<group>"; };
+		94028B920E67C3D9001CD6B0 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/InspectorPanel.xib; sourceTree = "<group>"; };
+		94028B950E67C3E5001CD6B0 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		94028B980E67C3F0001CD6B0 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MyDocument.xib; sourceTree = "<group>"; };
+		94028CC10E6BB060001CD6B0 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		94028CDD0E6BB13B001CD6B0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,12 +91,6 @@
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
-				94B257BB0E36F84600A5CBA6 /* NWView.m */,
-				94B257BC0E36F84600A5CBA6 /* NWView.h */,
-				941BA0920E41957E001ED6C7 /* NWStitchBlock.h */,
-				941BA0930E41957E001ED6C7 /* NWStitchBlock.m */,
-				9413E93F0E50282B00CA0B4A /* NWAppDelegate.h */,
-				9413E9400E50282B00CA0B4A /* NWAppDelegate.m */,
 			);
 			name = "Needle Works";
 			sourceTree = "<group>";
@@ -101,8 +98,16 @@
 		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2A37F4AEFDCFA73011CA2CEA /* MyDocument.h */,
-				2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */,
+				94028B7D0E67C308001CD6B0 /* AppDelegate.m */,
+				94028B7E0E67C308001CD6B0 /* AppDelegate.h */,
+				94028B800E67C314001CD6B0 /* DesignView.m */,
+				94028B810E67C314001CD6B0 /* DesignView.h */,
+				94028B830E67C323001CD6B0 /* InspectorPanelController.m */,
+				94028B840E67C323001CD6B0 /* InspectorPanelController.h */,
+				94028B860E67C32F001CD6B0 /* MyDocument.h */,
+				94028B870E67C32F001CD6B0 /* MyDocument.m */,
+				94028B890E67C33E001CD6B0 /* StitchBlock.h */,
+				94028B8A0E67C33E001CD6B0 /* StitchBlock.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -119,11 +124,11 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
-				8D15AC360486D014006FF6A4 /* Info.plist */,
-				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
-				1DDD58280DA1D0D100B32029 /* MyDocument.xib */,
-				1DDD582A0DA1D0D100B32029 /* MainMenu.xib */,
+				94028CC00E6BB060001CD6B0 /* Credits.rtf */,
+				94028CDD0E6BB13B001CD6B0 /* Info.plist */,
+				94028B970E67C3F0001CD6B0 /* MyDocument.xib */,
+				94028B940E67C3E5001CD6B0 /* MainMenu.xib */,
+				94028B910E67C3D9001CD6B0 /* InspectorPanel.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -180,10 +185,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */,
-				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
-				1DDD582C0DA1D0D100B32029 /* MyDocument.xib in Resources */,
-				1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */,
+				94028B930E67C3D9001CD6B0 /* InspectorPanel.xib in Resources */,
+				94028B960E67C3E5001CD6B0 /* MainMenu.xib in Resources */,
+				94028B990E67C3F0001CD6B0 /* MyDocument.xib in Resources */,
+				94028CC20E6BB060001CD6B0 /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,45 +199,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */,
 				8D15AC320486D014006FF6A4 /* main.m in Sources */,
-				94B257BD0E36F84600A5CBA6 /* NWView.m in Sources */,
-				941BA0940E41957E001ED6C7 /* NWStitchBlock.m in Sources */,
-				9413E9410E50282B00CA0B4A /* NWAppDelegate.m in Sources */,
+				94028B7F0E67C308001CD6B0 /* AppDelegate.m in Sources */,
+				94028B820E67C314001CD6B0 /* DesignView.m in Sources */,
+				94028B850E67C323001CD6B0 /* InspectorPanelController.m in Sources */,
+				94028B880E67C32F001CD6B0 /* MyDocument.m in Sources */,
+				94028B8B0E67C33E001CD6B0 /* StitchBlock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {
+		94028B910E67C3D9001CD6B0 /* InspectorPanel.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				089C1660FE840EACC02AAC07 /* English */,
+				94028B920E67C3D9001CD6B0 /* English */,
 			);
-			name = InfoPlist.strings;
+			name = InspectorPanel.xib;
 			sourceTree = "<group>";
 		};
-		1DDD58280DA1D0D100B32029 /* MyDocument.xib */ = {
+		94028B940E67C3E5001CD6B0 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1DDD58290DA1D0D100B32029 /* English */,
-			);
-			name = MyDocument.xib;
-			sourceTree = "<group>";
-		};
-		1DDD582A0DA1D0D100B32029 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1DDD582B0DA1D0D100B32029 /* English */,
+				94028B950E67C3E5001CD6B0 /* English */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
-		2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */ = {
+		94028B970E67C3F0001CD6B0 /* MyDocument.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2A37F4BAFDCFA73011CA2CEA /* English */,
+				94028B980E67C3F0001CD6B0 /* English */,
+			);
+			name = MyDocument.xib;
+			sourceTree = "<group>";
+		};
+		94028CC00E6BB060001CD6B0 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94028CC10E6BB060001CD6B0 /* English */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -289,7 +295,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CURRENT_PROJECT_VERSION = 0.1;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
