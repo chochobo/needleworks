@@ -20,109 +20,148 @@
 //  02111-1307, USA.
 
 #import "MyDocument.h"
-#import "NWStitchBlock.h"
+#import "StitchBlock.h"
 
 @implementation MyDocument
 
-- (id)init
-{
+/*
+ Designated initializer for new documents: creates the people array
+ */
+- (id) init {
     self = [super init];
     if (self) {
-        // Add your subclass-specific initialization here.
-        // If an error occurs here, send a [self release] message and return nil.
-		_objects = [[NSMutableArray alloc] init];
-		_selection = [[NSMutableArray alloc] init];
+		stitchBlocks = [[NSMutableArray alloc] init];
+		selection = [[NSMutableArray alloc] init];
+		docName = [[NSString alloc] initWithString:@""];
+		docSize = [[NSString alloc] initWithString:@""];
+		docDate = [[NSString alloc] initWithString:@""];
     }
     return self;
 }
 
 - (void)dealloc {
-	[_objects release];
-	[_selection release];
+	[stitchBlocks release];
+	[selection release];
 	[super dealloc];
 }
-
-- (NSString *)windowNibName
-{
-    // Override returning the nib file name of the document
-    // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
+/*
+ windowNibName returns the name of the document's nib file
+ */
+- (NSString *) windowNibName {
     return @"MyDocument";
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController *) aController
-{
+- (void)windowControllerDidLoadNib:(NSWindowController *) aController {
     [super windowControllerDidLoadNib:aController];
-
+	
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
-	[_mainView setDelegate:self];
-	
-	NSPoint			min = [self minPoint];
-	NSPoint			max = [self maxPoint];
-	
+	[mainView setDelegate:self];
+		
 	NSRect			r;
 	r.origin.x = min.x;
 	r.origin.y = min.y;
 	r.size.width = max.x - min.x;
 	r.size.height = max.y - min.y;
-		
-	/* We set the bounds origin since designs do not always originate
-	   from (0, 0). Some are even (<0, <0). */
-	[_mainView setBoundsOrigin:r.origin];
-
-	/* We set our frame to be the size of our design. */
-	[_mainView setFrame:r];
 	
-	/* We set the maximum size of the window's content to be no larger
-	   than the content itself. We don't want the user dragging the window
-	   beyond so that it exposes the Land of Infinite Grey. */
+	/* We set the bounds origin since designs do not always originate
+	 from (0, 0). Some are even (<0, <0). */
+	[mainView setBoundsOrigin:r.origin];
+	
+	/* We set our frame to be the size of our design. */
+	[mainView setFrame:r];
+	
+	/* We set the maximum size of the window's content to be no larger than the
+	 content itself. (plus the scrollbar troughs?) We don't want the user
+	 dragging the window beyond so that it exposes the Land of Infinite Grey. */
 	/* TODO: I might need to disable this when I implement zooming. */
-	[[_mainView window] setContentMaxSize:r.size];
+	r.size.width = max.x - min.x + 16;
+	r.size.height = max.y - min.y + 16;
+	[[mainView window] setContentMaxSize:r.size];
 	
 	/* We zoom the window so that the entire design is visible without 
-	   scrolling. If the screen is smaller than the design, the scroll view
-	   will help us out. */
-	[[_mainView window] performZoom:nil];
+	 scrolling. If the screen is smaller than the design, the scroll view
+	 will help us out. */
+	[[mainView window] performZoom:nil];
 }
+/*
+ dataOfType:error: method returns an NSData object that is an archive of the
+ group name and the array of Person objects.
+ This example doesn't do any error checking.
+ */
+/*- (NSData *) dataOfType:(NSString *)typeName error:(NSError **)outError {
+	NSMutableData *data = [NSMutableData data];
+	NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+	
+	[archiver encodeObject:people forKey:@"people"];
+	[archiver encodeObject:groupName forKey:@"groupName"];
+	[archiver encodeObject:firstColor forKey:@"firstColor"];
+	[archiver finishEncoding];
 
-- (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
-{
-    // Insert code here to write your document to data of the specified type. If the given outError != NULL, ensure that you set *outError when returning nil.
-
-    // You can also choose to override -fileWrapperOfType:error:, -writeToURL:ofType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
-
-    // For applications targeted for Panther or earlier systems, you should use the deprecated API -dataRepresentationOfType:. In this case you can also choose to override -fileWrapperRepresentationOfType: or -writeToFile:ofType: instead.
-
-    if ( outError != NULL ) {
-		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
-	}
-	return nil;
-}
+	return data;
+}*/
 
 - (int32_t) readInt32:(unsigned char *)b {
 	return (b[3] << 24) | (b[2] << 16) | (b[1] << 8) | b[0];
 }
 
-- (int) numColors {
-	return _numColors;
-}
+/*
+ readFromData:ofType:error: method reads an NSData object that is an archive of the
+ group name and the array of Person objects.
+ This example doesn't do any error checking.
+ */
+/*- (BOOL) readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError {
+	NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+		
+	self.people = [unarchiver decodeObjectForKey:@"people"];
+    self.groupName = [unarchiver decodeObjectForKey:@"groupName"];
+	self.firstColor = [unarchiver decodeObjectForKey:@"firstColor"];
+	
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	NSDictionary *fileAttributes = [fileManager fileAttributesAtPath:fileName traverseLink:YES];
+	self.fileSize = [fileAttributes objectForKey:NSFileSize];
+
+	self.docName = [fileName lastPathComponent];
+	[unarchiver finishDecoding];
+
+	return YES;
+}*/
+
 
 - (BOOL) readFromURL:(NSURL *)anUrl ofType:(NSString *)aType error:(NSError **) outError {
 	char buffer[4];
-	//unsigned char b[4];
 	unsigned char b[4];
 	int ptr, i, *colors;
 	int32_t pecstart;
 	
-	_pesData = [NSData dataWithContentsOfURL:anUrl];
+	NSLog([[anUrl path] lastPathComponent]);
+	
+	[self willChangeValueForKey:@"docName"];
+	self.docName = [[anUrl path] lastPathComponent];
+	[self didChangeValueForKey:@"docName"];
+	
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	NSDictionary *fileAttributes = [fileManager fileAttributesAtPath:[anUrl path] traverseLink:YES];
 
-	if (_pesData == nil) {
+	self.docSize = [[fileAttributes objectForKey:NSFileSize] stringValue];
+	NSLog([[fileAttributes objectForKey:NSFileSize] stringValue]);
+
+	docDate = [fileModificationDate description];
+	NSLog([fileModificationDate description]);
+	
+	//fileSize = [NSString stringWithFormat:@"12345 KB"];
+	//designSize = [NSString stringWithFormat:@"AxB"];
+	//NSLog(@"File size: %qi\n", [fileSize unsignedLongLongValue]);
+	
+	pesData = [NSData dataWithContentsOfURL:anUrl];
+	
+	if (pesData == nil) {
 		return NO;
 	}
 	
-	const unsigned char *pesBytes = [_pesData bytes];
+	const unsigned char *pesBytes = [pesData bytes];
 	
-	[_pesData getBytes:buffer length:4];
-
+	[pesData getBytes:buffer length:4];
+	
 	if (strncmp ("#PES", buffer, 4)) {
 		if ( outError != NULL ) {
 			*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
@@ -134,24 +173,26 @@
 	NSRange startRange;
 	startRange.location = 8;
 	startRange.length = 4;
-	[_pesData getBytes:b range:startRange];
+	[pesData getBytes:b range:startRange];
+	
 	pecstart = [self readInt32:b];
+	//NSLog(@"pecstart: %d\n", pecstart);
 	
 	/* Move to pecstart + 48 */
 	ptr = pecstart + 48;
-	//printf ("pecstart: %d\n", pecstart);
-
-	/* Fetch the number of colors in our document */
-	_numColors = pesBytes[ptr] + 1;
-	//printf ("numColors: %d\n", _numColors);
 	
-	/* We've read ptr, so advance one byte */
-	ptr += 1;
+	/* Fetch the number of colors in our document */
+	numColors = pesBytes[ptr++] + 1;
+	//printf ("numColors: %d\n", numColors);
+	numColorChanges = 0;
+	
+	numStitches = 0;
+	int numBlockStitches = 0;
 	
 	/* Allocate a list of colors (integers) */
-	colors = malloc (sizeof (int) * _numColors);
+	colors = malloc (sizeof (int) * numColors);
 	/* Walk our byte array and fetch each color */
-	for (i=0; i < _numColors; i+=1) {
+	for (i=0; i < numColors; i+=1) {
 		colors[i] = pesBytes[ptr++];
 		//printf ("colors[%d] = %d\n", i, colors[i]);
 	}
@@ -161,10 +202,10 @@
 	
 	unsigned char val1, val2;
 	BOOL stitchBlockDone = FALSE;
-	int colorNum = -1, numStitches = 0;
+	int colorNum = -1;
 	NSPoint prev = NSZeroPoint, delta = NSZeroPoint, tmpPoint;
 	NSBezierPath *tempStitches = [NSBezierPath bezierPath];
-	NWStitchBlock *curBlock;
+	StitchBlock *curBlock;
 	
 	//printf ("START ptr: %d\n\n", ptr);
 	
@@ -174,7 +215,7 @@
 		val1 = pesBytes[ptr++];
 		//printf ("ptr @val2: %d\n", ptr);
 		val2 = pesBytes[ptr++];
-
+		
 		//printf ("vals: (%d, %d)\n", val1, val2);
 		
 		if (val1 == 255 && val2 == 0) {
@@ -183,8 +224,8 @@
 			stitchBlockDone = TRUE;
 			
 			/* Allocate the last block */
-			curBlock = [[NWStitchBlock alloc] init];
-
+			curBlock = [[StitchBlock alloc] init];
+			
 			/* Save the stitches to our block */
 			[curBlock setStitches:tempStitches];
 			
@@ -193,26 +234,27 @@
 			[curBlock setColorIndex:colors[colorNum]];
 			
 			/* Save our block */
-			[self addObject:curBlock];
+			[self addStitchBlock:curBlock];
 		}
-
+		
 		// color switch, start a new block		
 		else if (val1 == 254 && val2 == 176) {
 			//printf ("new block\n");
+			numColorChanges += 1;
 			
 			/* Allocate a block */
-			curBlock = [[NWStitchBlock alloc] init];
-
+			curBlock = [[StitchBlock alloc] init];
+			
 			/* Save the stitches to our block */
 			[curBlock setStitches:tempStitches];
-
+			
 			/* Set our block's color */
 			colorNum += 1;
 			[curBlock setColorIndex:colors[colorNum]];
 			//printf ("colorNum a: %d\n", colorNum);
 			
 			/* Save our block */
-			[self addObject:curBlock];
+			[self addStitchBlock:curBlock];
 			
 			/* Start a new stitch */
 			tempStitches = [NSBezierPath bezierPath];
@@ -276,22 +318,38 @@
 				/* then draw a line to here for the other stitches */
 				[tempStitches lineToPoint:tmpPoint];
 			}
+			
+			/* Stitches in our block */
+			numBlockStitches += 1;
+			/* Stitches in our design */
 			numStitches += 1;
 			
 			prev.x += delta.x;
 			prev.y += delta.y;
-			if (prev.x > _max.x) {
-				_max.x = prev.x;
-			} else if (prev.x < _min.x) {
-				_min.x = prev.x;
+			if (prev.x > max.x) {
+				max.x = prev.x;
+			} else if (prev.x < min.x) {
+				min.x = prev.x;
 			}
-			if (prev.y > _max.y) {
-				_max.y = prev.y;
-			} else if (prev.y < _min.y) {
-				_min.y = prev.y;
+			if (prev.y > max.y) {
+				max.y = prev.y;
+			} else if (prev.y < min.y) {
+				min.y = prev.y;
 			}
 		}
 	}
+	
+	NSRect			r;
+	r.origin.x = min.x;
+	r.origin.y = min.y;
+	r.size.width = max.x - min.x;
+	r.size.height = max.y - min.y;
+	NSLog(@"%f x %f\n", r.size.width, r.size.height);
+	designSize = [
+		[NSString alloc] initWithFormat:@"%.2f\" x %.2f\" (%.0f mm x %.0f mm)",
+				  r.size.width/254, r.size.height/254,
+				  r.size.width/10, r.size.height/10
+	];
 	
 	return YES;
 }
@@ -302,56 +360,48 @@
 	[printInfo setVerticalPagination:NSFitPagination];
 	[printInfo setHorizontallyCentered:YES];
 	[printInfo setVerticallyCentered:YES];
-		
-	NSPrintOperation* op = [NSPrintOperation printOperationWithView:_mainView printInfo:printInfo];
+	
+	NSPrintOperation* op = [NSPrintOperation printOperationWithView:mainView printInfo:printInfo];
 	
 	return op;
 }
 
-- (NSPoint) minPoint {
-	return _min;
-}
-- (NSPoint) maxPoint {
-	return _max;
-}
-/*
- - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
-{
-    // Insert code here to read your document from the given data of the specified type.  If the given outError != NULL, ensure that you set *outError when returning NO.
-
-    // You can also choose to override -readFromFileWrapper:ofType:error: or -readFromURL:ofType:error: instead. 
-    
-    // For applications targeted for Panther or earlier systems, you should use the deprecated API -loadDataRepresentation:ofType. In this case you can also choose to override -readFromFile:ofType: or -loadFileWrapperRepresentation:ofType: instead.
-    
-    if ( outError != NULL ) {
-		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
-	}
-    return YES;
-}
-*/
-
-- (void)addObject:(id) object {
-	if (![_objects containsObject:object]) {
-		[_objects addObject:object];
+- (void)addStitchBlock:(id) object {
+	if (![stitchBlocks containsObject:object]) {
+		[stitchBlocks addObject:object];
 	}
 }
 
-- (void)removeObject:(id) object {
-	[_objects removeObject:object];
+- (void)removeStitchBlock:(id) object {
+	[stitchBlocks removeObject:object];
 }
 
-- (NSArray*) objects {
-	return _objects;
+- (NSArray*) stitchBlocks {
+	return stitchBlocks;
 }
 
-- (void) setObjects:(NSMutableArray*) arr {
+- (void) setStitchBlocks:(NSMutableArray*) arr {
 	[arr retain];
-	[_objects release];
-	_objects = arr;
-	//[self deselectAll];
+	[stitchBlocks release];
+	stitchBlocks = arr;
 }
 
-- (BOOL) isPES {
-	return _isPES;
+- (NSUInteger) countOfStitcheBlocks {
+	return [stitchBlocks count];
 }
+
+/*
+ Accessor methods
+*/ 
+@synthesize fileName;
+@synthesize docName;
+@synthesize fileSize;
+@synthesize docSize;
+@synthesize fileModificationDate;
+@synthesize firstColor;
+@synthesize designSize;
+@synthesize numStitches;
+@synthesize numColors;
+@synthesize numColorChanges;
+@synthesize isPES;
 @end

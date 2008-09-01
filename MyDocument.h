@@ -24,28 +24,52 @@
 
 @interface MyDocument : NSDocument
 {
-	NSData*			_pesData;
-	NSMutableArray* _objects;
-	NSMutableArray* _selection;
-	NSPoint			_min, _max;
+	NSColor	 *firstColor;
 	
-	BOOL			_isPES;
+	NSData*			pesData;
+	NSMutableArray* stitchBlocks;
+	NSMutableArray* selection;
+	NSPoint			min, max;
 	
-	int				_numColors;
+	BOOL			isPES;
 	
-	IBOutlet id		_mainView;
+	NSInteger		numColors;
+	NSInteger		numColorChanges;
+	NSInteger		numStitches;
+	NSString*		designSize;
+	NSNumber*		fileSize;
+	NSString*		docSize;
+	NSString*		fileName;
+	NSString*		docName;
+	NSDate*			fileModificationDate;
+	NSString*		docDate;
+	
+	IBOutlet id		mainView;
+	IBOutlet NSArrayController *stitchBlockController;
 }
+
+
+@property (nonatomic, copy) NSString *fileName;
+@property (nonatomic, copy) NSString *docName;
+@property (nonatomic, copy) NSNumber *fileSize;
+@property (nonatomic, copy) NSString *docSize;
+@property (nonatomic, copy) NSDate *fileModificationDate;
+@property (nonatomic, copy) NSString *designSize;
+@property (nonatomic, assign) NSInteger numStitches;
+@property (nonatomic, assign) NSInteger numColors;
+@property (nonatomic, assign) NSInteger numColorChanges;
+@property (nonatomic, copy) NSColor *firstColor;
+@property (nonatomic, assign) BOOL isPES;
+
 - (int32_t) readInt32:(unsigned char *)bytes;
-- (int) numColors;
+
 
 /* drawing maintenance */
-- (void)		addObject:(id) object;
-- (void)		removeObject:(id) object;
-- (NSArray*)	objects;
+- (void)		addStitchBlock:(id) object;
+- (void)		removeStitchBlock:(id) object;
+- (NSArray*)	stitchBlocks;
 
-- (void)		setObjects:(NSMutableArray*) arr;
-- (BOOL)		isPES;
-- (NSPoint)		minPoint;
-- (NSPoint)		maxPoint;
+- (void)		setStitchBlocks:(NSMutableArray*) arr;
+- (NSUInteger)	countOfStitcheBlocks;
 
 @end
