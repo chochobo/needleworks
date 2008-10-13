@@ -13,11 +13,17 @@
 		94028B820E67C314001CD6B0 /* DesignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94028B800E67C314001CD6B0 /* DesignView.m */; };
 		94028B850E67C323001CD6B0 /* InspectorPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94028B830E67C323001CD6B0 /* InspectorPanelController.m */; };
 		94028B880E67C32F001CD6B0 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 94028B870E67C32F001CD6B0 /* MyDocument.m */; };
-		94028B8B0E67C33E001CD6B0 /* StitchBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 94028B8A0E67C33E001CD6B0 /* StitchBlock.m */; };
 		94028B930E67C3D9001CD6B0 /* InspectorPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94028B910E67C3D9001CD6B0 /* InspectorPanel.xib */; };
 		94028B960E67C3E5001CD6B0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94028B940E67C3E5001CD6B0 /* MainMenu.xib */; };
 		94028B990E67C3F0001CD6B0 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94028B970E67C3F0001CD6B0 /* MyDocument.xib */; };
 		94028CC20E6BB060001CD6B0 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 94028CC00E6BB060001CD6B0 /* Credits.rtf */; };
+		94028E120E6FAC6C001CD6B0 /* StitchBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 94028B8A0E67C33E001CD6B0 /* StitchBlock.m */; };
+		94028F290E78729B001CD6B0 /* Designer's Gallery.clr in Resources */ = {isa = PBXBuildFile; fileRef = 94028F260E78729B001CD6B0 /* Designer's Gallery.clr */; };
+		94028F2A0E78729B001CD6B0 /* BuzzEdit.clr in Resources */ = {isa = PBXBuildFile; fileRef = 94028F270E78729B001CD6B0 /* BuzzEdit.clr */; };
+		94028F2B0E78729B001CD6B0 /* Amazing Box Max.clr in Resources */ = {isa = PBXBuildFile; fileRef = 94028F280E78729B001CD6B0 /* Amazing Box Max.clr */; };
+		94A2F8B40E9FDEC200C29361 /* NoDividerSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A2F8B30E9FDEC200C29361 /* NoDividerSplitView.m */; };
+		94C97FD00E96D7590090FD3B /* PrintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C97FCF0E96D7590090FD3B /* PrintView.m */; };
+		94FC42280E9D41DB00A3B54D /* LegendPrintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC42270E9D41DB00A3B54D /* LegendPrintView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +49,15 @@
 		94028B980E67C3F0001CD6B0 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MyDocument.xib; sourceTree = "<group>"; };
 		94028CC10E6BB060001CD6B0 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		94028CDD0E6BB13B001CD6B0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94028F260E78729B001CD6B0 /* Designer's Gallery.clr */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Designer's Gallery.clr"; sourceTree = "<group>"; };
+		94028F270E78729B001CD6B0 /* BuzzEdit.clr */ = {isa = PBXFileReference; lastKnownFileType = file; path = BuzzEdit.clr; sourceTree = "<group>"; };
+		94028F280E78729B001CD6B0 /* Amazing Box Max.clr */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amazing Box Max.clr"; sourceTree = "<group>"; };
+		94A2F8B20E9FDEC200C29361 /* NoDividerSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoDividerSplitView.h; sourceTree = "<group>"; };
+		94A2F8B30E9FDEC200C29361 /* NoDividerSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoDividerSplitView.m; sourceTree = "<group>"; };
+		94C97FCE0E96D7590090FD3B /* PrintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintView.h; sourceTree = "<group>"; };
+		94C97FCF0E96D7590090FD3B /* PrintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintView.m; sourceTree = "<group>"; };
+		94FC42260E9D41DB00A3B54D /* LegendPrintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegendPrintView.h; sourceTree = "<group>"; };
+		94FC42270E9D41DB00A3B54D /* LegendPrintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegendPrintView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,14 +113,20 @@
 		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				94028B7D0E67C308001CD6B0 /* AppDelegate.m */,
 				94028B7E0E67C308001CD6B0 /* AppDelegate.h */,
-				94028B800E67C314001CD6B0 /* DesignView.m */,
+				94028B7D0E67C308001CD6B0 /* AppDelegate.m */,
 				94028B810E67C314001CD6B0 /* DesignView.h */,
-				94028B830E67C323001CD6B0 /* InspectorPanelController.m */,
+				94028B800E67C314001CD6B0 /* DesignView.m */,
 				94028B840E67C323001CD6B0 /* InspectorPanelController.h */,
+				94028B830E67C323001CD6B0 /* InspectorPanelController.m */,
 				94028B860E67C32F001CD6B0 /* MyDocument.h */,
 				94028B870E67C32F001CD6B0 /* MyDocument.m */,
+				94FC42260E9D41DB00A3B54D /* LegendPrintView.h */,
+				94FC42270E9D41DB00A3B54D /* LegendPrintView.m */,
+				94A2F8B20E9FDEC200C29361 /* NoDividerSplitView.h */,
+				94A2F8B30E9FDEC200C29361 /* NoDividerSplitView.m */,
+				94C97FCE0E96D7590090FD3B /* PrintView.h */,
+				94C97FCF0E96D7590090FD3B /* PrintView.m */,
 				94028B890E67C33E001CD6B0 /* StitchBlock.h */,
 				94028B8A0E67C33E001CD6B0 /* StitchBlock.m */,
 			);
@@ -126,6 +147,9 @@
 			children = (
 				94028CC00E6BB060001CD6B0 /* Credits.rtf */,
 				94028CDD0E6BB13B001CD6B0 /* Info.plist */,
+				94028F280E78729B001CD6B0 /* Amazing Box Max.clr */,
+				94028F270E78729B001CD6B0 /* BuzzEdit.clr */,
+				94028F260E78729B001CD6B0 /* Designer's Gallery.clr */,
 				94028B970E67C3F0001CD6B0 /* MyDocument.xib */,
 				94028B940E67C3E5001CD6B0 /* MainMenu.xib */,
 				94028B910E67C3D9001CD6B0 /* InspectorPanel.xib */,
@@ -189,6 +213,9 @@
 				94028B960E67C3E5001CD6B0 /* MainMenu.xib in Resources */,
 				94028B990E67C3F0001CD6B0 /* MyDocument.xib in Resources */,
 				94028CC20E6BB060001CD6B0 /* Credits.rtf in Resources */,
+				94028F290E78729B001CD6B0 /* Designer's Gallery.clr in Resources */,
+				94028F2A0E78729B001CD6B0 /* BuzzEdit.clr in Resources */,
+				94028F2B0E78729B001CD6B0 /* Amazing Box Max.clr in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +231,10 @@
 				94028B820E67C314001CD6B0 /* DesignView.m in Sources */,
 				94028B850E67C323001CD6B0 /* InspectorPanelController.m in Sources */,
 				94028B880E67C32F001CD6B0 /* MyDocument.m in Sources */,
-				94028B8B0E67C33E001CD6B0 /* StitchBlock.m in Sources */,
+				94028E120E6FAC6C001CD6B0 /* StitchBlock.m in Sources */,
+				94C97FD00E96D7590090FD3B /* PrintView.m in Sources */,
+				94FC42280E9D41DB00A3B54D /* LegendPrintView.m in Sources */,
+				94A2F8B40E9FDEC200C29361 /* NoDividerSplitView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
