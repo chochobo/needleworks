@@ -1,5 +1,5 @@
 //
-//  DesignView.h
+//  PrintView.h
 //  Needle Works
 //
 //  Copyright 2008 Ryan Lovett <ryan@spacecoaster.org>. All rights reserved.
@@ -19,48 +19,45 @@
 //  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 //  02111-1307, USA.
 
-#import "DesignView.h"
+#import "PrintView.h"
 #import "StitchBlock.h"
 #import "MyDocument.h"
 
-@implementation DesignView
+@implementation PrintView
 
 @synthesize delegate;
 
 - (void) drawRect:(NSRect) rect {
 	MyDocument* doc = [self delegate];
-
+	
 	NSGraphicsContext *currentContext = [NSGraphicsContext currentContext];
-		
-	/* Get our list of stitch blocks */
+	
+	// Get our list of stitch blocks
 	NSArray*		drawList = [doc stitchBlocks];
 	NSEnumerator*	iter;
 	StitchBlock*	stitchblock;
-
-	/* Draw the background */
-	[[doc fabricColor] set];
-	NSRectFill (rect);
-
-	/* Draw a red box around our view for debugging *
-	NSColor* red = [NSColor redColor];
-	[red setStroke];
-	NSBezierPath* outline = [NSBezierPath bezierPathWithRect:r];
-	[outline setLineWidth:3];
-	[[NSBezierPath bezierPathWithRect:r] stroke];*/
-
-	/* Draw all of the stitches */
+	
+	//NSLog(@"PrintView::drawRect: rect: %f x %f @ (%f, %f)",
+	//	  rect.size.width, rect.size.height, rect.origin.x, rect.origin.y);
+	//NSLog(@"PrintView::drawRect: frame: %f x %f @ (%f, %f)",
+	//	  [self frame].size.width, [self frame].size.height,
+	//	  [self frame].origin.x, [self frame].origin.y);
+	//NSLog(@"PrintView::drawRect: bounds: %f x %f @ (%f, %f)",
+	//	  [self bounds].size.width, [self bounds].size.height,
+	//	  [self bounds].origin.x, [self bounds].origin.y);
+	
+	// Draw all of the stitches
 	iter = [drawList objectEnumerator];
 	while(stitchblock = [iter nextObject]) {
 		[currentContext saveGraphicsState];
 		[stitchblock drawWithSelection:FALSE Jumps:[doc showJumpStitches] Width:[doc lineWidth]];
 		[currentContext restoreGraphicsState];
-	}
-    
+	}	
 }
 
 /* http://developer.apple.com/documentation/Cocoa/Conceptual/CocoaViewsGuide/Optimizing/chapter_8_section_7.html */
 - (void) setFrameSize:(NSSize)newSize {
-
+	
     [super setFrameSize:newSize];
 	
     if ([self inLiveResize]) {

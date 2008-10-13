@@ -34,50 +34,85 @@
  
 
 /*
- inspectedDocument is a KVO-compliant property, which this method manages. Anytime we hear about the mainWindow, or the mainWindow's document change, we check to see what changed.
- Note that activeDocumentChanged doesn't mean document contents changed, but rather we have a new active document.
+ inspectedDocument is a KVO-compliant property, which this method manages.
+ Anytime we hear about the mainWindow, or the mainWindow's document change, we
+ check to see what changed. Note that activeDocumentChanged doesn't mean
+ document contents changed, but rather we have a new active document.
  */
 - (void) activeDocumentChanged {
+	//NSLog(@"InspectorPanelController::activeDocumentChanged\n");
+	//NSLog([self.inspectedDocument class]);
     id mainDocument = [[[NSApp mainWindow] windowController] document];
-    if (mainDocument != inspectedDocument) {
-		if (inspectedDocument) {
+	
+	/* If there is no main document, there should be nothing for the panel to
+	 * inspect. The panel will then reflect disabled controls. */
+	if (mainDocument == nil) {
+		//NSLog(@"mainDocument == nil");
+		self.inspectedDocument = nil;
+	}//*/
+	
+	/* If the main document was switched ... */
+    if (mainDocument != self.inspectedDocument && [mainDocument isKindOfClass:[MyDocument class]]) {
+		/* ... and we had been looking at another main document... */
+		if (self.inspectedDocument) {
+			/* finish doing stuff with it */
+			//NSLog(@"finished with inspected document");
 			[documentObjectController commitEditing];
 		}
-		self.inspectedDocument = (mainDocument && [mainDocument isKindOfClass:[MyDocument class]]) ? mainDocument : nil;   
+		//self.inspectedDocument = (mainDocument && [mainDocument isKindOfClass:[MyDocument class]]) ? mainDocument : nil;   
+		if (mainDocument) {
+			if ([mainDocument isKindOfClass:[MyDocument class]]) {
+				//NSLog(@"mainDocument is MyDocument");
+				self.inspectedDocument = mainDocument;
+			} else {
+				//NSLog(@"mainDocument is not MyDocument");
+				self.inspectedDocument = nil;
+			}
+		} else {
+			//NSLog(@"no mainDocument");
+			self.inspectedDocument = nil;
+		}
     }
 }
 
 
-/*
- KVO change notification: if the context is the InspectorPanelController class, this is
- a notification that the value associated with the keypath we observed
- ([NSApp].mainWindow.windowController.document) changed, hence the active document changed.
- If the context is something else, pass it up the chain.
- */
+/* KVO change notification: if the context is the InspectorPanelController
+ * class, this is a notification that the value associated with the keypath we
+ * observed ([NSApp].mainWindow.windowController.document) changed, hence the
+ * active document changed. If the context is something else, pass it up the
+ * chain. */
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	//NSLog(@"InspectorPanelController::observeValueForKeyPath\n");
     if (context == [InspectorPanelController class]) {
+		//NSLog(@"keyPath:"); NSLog(keyPath);
 		[self activeDocumentChanged];
     } else {
 		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
 
-/*
- When controls in the panel start editing, register it with the inspected document.
- */
+/* When controls in the panel start editing, register it with the inspected
+ * document. */
 - (void) objectDidBeginEditing:(id)editor {
-    [inspectedDocument objectDidBeginEditing:editor];
+	//NSLog(@"InspectorPanelController::objectDidBeginEditing\n");
+	if ([inspectedDocument isKindOfClass:[MyDocument class]]) {
+		[inspectedDocument objectDidBeginEditing:editor];
+	}
 }
 
 - (void) objectDidEndEditing:(id)editor {
-    [inspectedDocument objectDidEndEditing:editor];
+	//NSLog(@"InspectorPanelController::objectDidEndEditing\n");
+	if ([inspectedDocument isKindOfClass:[MyDocument class]]) {
+		[inspectedDocument objectDidEndEditing:editor];
+	}
 }
 
-/*
- We don't want to do any observing until the properties panel is brought up.
- */
+/* We don't want to do any observing until the properties panel is brought
+ * up. */
 - (void) windowDidLoad {
-    // Once the UI is loaded, we start observing the panel itself to commit editing when it becomes inactive (loses key state)
+	//NSLog(@"InspectorPanelController::windowDidLoad\n");
+    /* Once the UI is loaded, we start observing the panel itself to commit
+	 * editing when it becomes inactive (loses key state) */
     [[NSNotificationCenter defaultCenter]
 		addObserver:self
 		selector:@selector(inspectorPanelDidResignKey:)
@@ -85,7 +120,8 @@
 		object:[self window]
 	];
 	
-    // Make sure we start inspecting the document that is currently active, and start observing changes
+    /* Make sure we start inspecting the document that is currently active, and
+	 * start observing changes */
     [self activeDocumentChanged];
     [NSApp
 		addObserver:self
@@ -94,13 +130,13 @@
 		context:[InspectorPanelController class]
 	];
 	
-    [super windowDidLoad];  // It's documented to do nothing, but still a good idea to invoke...
+	/* It's documented to do nothing, but still a good idea to invoke... */
+    [super windowDidLoad];
 }
 
-/*
- Whenever the properties panel loses key status, we want to commit editing.
- */
+/* Whenever the properties panel loses key status, we want to commit editing. */
 - (void) inspectorPanelDidResignKey:(NSNotification *)notification {
+	//NSLog(@"InspectorPanelController::inspectorPanelDidResignKey\n");
     [documentObjectController commitEditing];
 }
 
@@ -109,6 +145,7 @@
  Note that if the window is visible and key, we order it out; otherwise we make it key.
  */
 - (void) toggleInspectorPanel:(id)sender {
+	//NSLog(@"InspectorPanelController::toggleInspectorPanel\n");
     NSWindow *window = [self window];
     if ([window isVisible] && [window isKeyWindow]) {
 		[window orderOut:sender];
@@ -121,6 +158,7 @@
  validateMenuItem: is used to dynamically set attributes of menu items.
  */
 - (BOOL) validateMenuItem:(NSMenuItem *)menuItem {
+	//NSLog(@"InspectorPanelController::validateMenuItem\n");
     if ([menuItem action] == @selector(toggleInspectorPanel:)) {  
 		// Correctly toggle the menu item for showing/hiding document properties
 		// We call [self isWindowLoaded] first since it prevents [self window] from loading the nib
@@ -129,10 +167,10 @@
 		
 		if (![self isWindowLoaded] || ![[self window] isVisible] || ![[self window] isKeyWindow]) {
 			// the panel is not loaded, not visible, or not key
-			menuTitle = NSLocalizedString(@"Show Inspector",
+			menuTitle = NSLocalizedString(@"Show Design Information",
 										  @"Title for menu item to show the document properties panel (should be the same as the initial menu item in the nib).");
  		} else {
-			menuTitle = NSLocalizedString(@"Hide Inspector",
+			menuTitle = NSLocalizedString(@"Hide Design Information",
 										  @"Title for menu item to hide the Inspector panel.");
 		}
 		[menuItem setTitleWithMnemonic:menuTitle];

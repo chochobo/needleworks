@@ -24,42 +24,55 @@
 
 @interface MyDocument : NSDocument
 {
-	NSColor	 *firstColor;
-	
-	NSData*			pesData;
-	NSMutableArray* stitchBlocks;
-	NSMutableArray* selection;
-	NSPoint			min, max;
-	
+	//int*			jumpStitches;
+	//int				numJumpStitches;
+
+	BOOL			showJumpStitches;
 	BOOL			isPES;
+
+	NSPoint			min, max;
 	
 	NSInteger		numColors;
 	NSInteger		numColorChanges;
 	NSInteger		numStitches;
-	NSString*		designSize;
 	NSNumber*		fileSize;
-	NSString*		docSize;
 	NSString*		fileName;
+	NSString*		designSize;
+	NSString*		docSize;
 	NSString*		docName;
-	NSDate*			fileModificationDate;
 	NSString*		docDate;
+	NSDate*			fileModificationDate;
+	
+	CGFloat			lineWidth;
+	NSColor*		fabricColor;
+
+	NSData*			pesData;
+	NSMutableArray* stitchBlocks;
+	NSMutableArray* selection;
+	
+	NSMutableArray *colorLists;
+	
+	NSSize			origPrintViewSizePortrait;
+	NSSize			origPrintViewSizeLandscape;
 	
 	IBOutlet id		mainView;
-	IBOutlet NSArrayController *stitchBlockController;
+	IBOutlet id		printView;
+	IBOutlet id		splitView;
+	IBOutlet id		legendPrintView;
 }
 
 
 @property (nonatomic, copy) NSString *fileName;
-@property (nonatomic, copy) NSString *docName;
 @property (nonatomic, copy) NSNumber *fileSize;
-@property (nonatomic, copy) NSString *docSize;
 @property (nonatomic, copy) NSDate *fileModificationDate;
+@property (nonatomic, copy) NSString *docName;
+@property (nonatomic, copy) NSString *docSize;
 @property (nonatomic, copy) NSString *designSize;
 @property (nonatomic, assign) NSInteger numStitches;
 @property (nonatomic, assign) NSInteger numColors;
 @property (nonatomic, assign) NSInteger numColorChanges;
-@property (nonatomic, copy) NSColor *firstColor;
-@property (nonatomic, assign) BOOL isPES;
+//@property (readonly) NSMutableArray *colorLists;
+@property (assign) BOOL isPES;
 
 - (int32_t) readInt32:(unsigned char *)bytes;
 
@@ -67,9 +80,23 @@
 /* drawing maintenance */
 - (void)		addStitchBlock:(id) object;
 - (void)		removeStitchBlock:(id) object;
-- (NSArray*)	stitchBlocks;
 
+/* Methods that require redrawing */
+- (NSArray*)	stitchBlocks;
 - (void)		setStitchBlocks:(NSMutableArray*) arr;
-- (NSUInteger)	countOfStitcheBlocks;
+
+- (NSColor*)	fabricColor;
+- (void)		setFabricColor:(NSColor*) c;
+
+- (CGFloat)		lineWidth;
+- (void)		setLineWidth:(CGFloat) w;
+
+- (BOOL)		showJumpStitches;
+- (void)		setShowJumpStitches:(BOOL) show;
+
+- (NSPoint)		max;
+- (NSPoint)		min;
+
+- (NSMutableArray*) colorLists;
 
 @end

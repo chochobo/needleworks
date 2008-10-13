@@ -23,11 +23,12 @@
 
 @implementation StitchBlock
 
-- (id) init {
-	if ((self = [super init]) != nil ) {
-		stitchColor = [NSColor blackColor];
-	}
-	return self;
+- (void) dealloc {
+	//NSLog(@"StitchBlock::dealloc\n");
+	[stitches release];
+	[stitchesAndJumps release];
+
+	[super dealloc];
 }
 
 /* This color map comes from the Embroidery Reader code */
@@ -231,40 +232,46 @@
 		default:
 			r = 1.0f; g = 1.0f; b = 1.0f;
 			break;
-	}	
+	}
+	
+	[self setColor:[NSColor colorWithCalibratedRed:r/255 green:g/255 blue:b/255 alpha: 1.0f]];
 }
 
 - (NSUInteger) colorIndex {
 	return colorIndex;
 }
 
-- (void) drawWithSelection:(BOOL) selected {
-	NSBezierPath* path = [self stitches];
-	NSColor* c = [NSColor colorWithCalibratedRed:r/255 green:g/255 blue:b/255 alpha: 1.0f];
+- (void) drawWithSelection:(BOOL) selected Jumps:(BOOL) jumps Width:(CGFloat)lineWidth {
+	NSBezierPath* path;
+	
+	path = (jumps) ? [self stitchesAndJumps] : [self stitches];
 	
 	/* Set the color we're about to stroke with */
-	[c setStroke];
+	//[[NSColor colorWithCalibratedRed:r/255 green:g/255 blue:b/255 alpha: 1.0f] setStroke];
+	[color setStroke];
 	
-	// 1 PES unit == 1/10 mm == 1/100 cm == 1/254 inches == 100/254 dots	
-	//CGFloat scale = 100.0f / 254;
+	/* testing */
+	[path setLineCapStyle:NSRoundLineCapStyle];
+	[path setLineJoinStyle:NSRoundLineJoinStyle];
 	
-	/*
-	NSAffineTransform *transform = [NSAffineTransform transform];
-	[transform scaleBy:scale];
-	[path transformUsingAffineTransform:transform];
-	
-	// One day users can set the line width dynamically
-	[path setLineWidth:scale];
-	//*/
+	/* Users can set the line width dynamically */
+	[path setLineWidth:lineWidth];
 	
 	/* Draw the line */
 	[path stroke];
 	
-	/* Draw a box around a stitch block for debugging purposes 
-	 NSColor* black = [NSColor blackColor];
+	/* Draw a box around a stitch block for debugging purposes *
+	 NSColor* black = [NSColor redColor];
 	 [black setStroke];
 	 [[NSBezierPath bezierPathWithRect:[path bounds]] stroke];
-	 */
+	 //*/
+}
+
+- (void) scale:(CGFloat)factor {
+	NSAffineTransform *transform = [NSAffineTransform transform];
+	[transform scaleBy:factor];
+	[stitches transformUsingAffineTransform:transform];
+	[stitchesAndJumps transformUsingAffineTransform:transform];
 }
 
 /*
@@ -272,6 +279,7 @@
  */ 
 @synthesize color;
 @synthesize stitches;
+@synthesize stitchesAndJumps;
 @synthesize numStitches;
 
 @end

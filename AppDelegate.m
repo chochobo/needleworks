@@ -21,8 +21,47 @@
 
 #import "AppDelegate.h"
 
-
 @implementation AppDelegate
+
+- (id)init {
+	self = [super init];
+	//NSLog(@"AppDelegate::init\n");
+	
+	// Our application's shared color panel
+	NSColorPanel *colorPanel = [NSColorPanel sharedColorPanel];
+	// We set the mode to custom color lists
+	//[colorPanel setMode:NSColorListModeColorPanel];
+	[colorPanel setMode:NSWheelModeColorPanel];
+/*	
+	// The paths to our .clr files in Needle Works.app/Contents/Resources/
+	NSArray *colorPaths = [[NSBundle mainBundle] pathsForResourcesOfType:@"clr" inDirectory:nil];
+	NSEnumerator *colorPathIter;
+	NSColorList *colorList;
+	
+	NSArray *colorNames;
+	NSEnumerator *colorNameIter;
+	NSString *path, *pathBasename, *colorStr;
+	
+	colorPathIter = [colorPaths objectEnumerator];
+	while (path = [colorPathIter nextObject]) {
+		pathBasename = [path lastPathComponent];
+		//colorList = [[NSColorList alloc] initWithName:[pathBasename substringToIndex:([pathBasename length] - 4)] fromFile:path];
+		colorList = [[NSColorList alloc] initWithName:[pathBasename stringByDeletingPathExtension] fromFile:path];
+		if (colorList != nil) {
+			[colorPanel attachColorList:colorList];
+			colorNames = [colorList allKeys];
+			colorNameIter = [colorNames objectEnumerator];
+			while (colorStr = [colorNameIter nextObject]) {
+				//NSLog(colorStr);
+			}
+			[colorLists addObject:colorList];
+		} else {
+			NSLog(@"Cannot find %s color list\n", [path lastPathComponent]);
+		}		
+	}
+*/
+	return self;
+}
 
 /* Don't open a blank window when the application starts */
 - (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
@@ -33,4 +72,5 @@
    displaying an Open File sheet so that the user is given some feedback
    when launching the program. */
    
+
 @end

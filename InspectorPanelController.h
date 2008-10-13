@@ -22,8 +22,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-
-@interface InspectorPanelController : NSWindowController
+@interface InspectorPanelController : NSWindowController 
 {
     IBOutlet NSObjectController *documentObjectController;
     id inspectedDocument;

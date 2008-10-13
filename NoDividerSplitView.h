@@ -1,5 +1,5 @@
 //
-//  StitchBlock.h
+//  NoDividerSplitView.h
 //  Needle Works
 //
 //  Copyright 2008 Ryan Lovett <ryan@spacecoaster.org>. All rights reserved.
@@ -22,27 +22,8 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface StitchBlock : NSObject {
-	NSColor *color;
-	CGFloat r, g, b;
-	
-	// You cannot modify the type of the path element so we can't change
-	// lineto to moveto or vice versa. We just create both to save time.
-    NSBezierPath *stitches;
-	NSBezierPath *stitchesAndJumps;
-	
-	NSUInteger colorIndex;
-	NSUInteger numStitches;
+@interface NoDividerSplitView : NSSplitView {
+
 }
-
-// properties
-@property (copy) NSColor *color;
-@property (copy) NSBezierPath *stitches;
-@property (copy) NSBezierPath *stitchesAndJumps;
-@property (assign) NSUInteger colorIndex;
-@property (assign) NSUInteger numStitches;
-
-- (void) drawWithSelection:(BOOL)selected Jumps:(BOOL)jumps Width:(CGFloat)lineWidth;
-- (void) scale:(CGFloat)factor;
 
 @end

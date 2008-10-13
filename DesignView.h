@@ -27,8 +27,5 @@
 }
 
 @property (nonatomic, retain) MyDocument* delegate;
-/*
-- (void) setDelegate:(id) aDelegate;
-- (id) delegate;
-*/
+
 @end
