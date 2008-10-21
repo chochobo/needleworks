@@ -517,6 +517,10 @@
 	return min;
 }
 
+- (NSSize)canvasSize {
+	return NSMakeSize(max.x - min.x, max.y - min.y);
+}
+
 - (NSMutableArray*)colorLists {
 	return colorLists;
 }

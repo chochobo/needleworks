@@ -97,6 +97,8 @@
 - (NSPoint)		max;
 - (NSPoint)		min;
 
+- (NSSize)canvasSize;
+
 - (NSMutableArray*) colorLists;
 
 @end
