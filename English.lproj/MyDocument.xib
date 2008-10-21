@@ -8,6 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="100229"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -59,6 +60,7 @@
 									</object>
 									<string key="NSFrame">{{1, 1}, {542, 418}}</string>
 									<reference key="NSSuperview" ref="50164465"/>
+									<reference key="NSNextKeyView" ref="1056236612"/>
 									<reference key="NSDocView" ref="1056236612"/>
 									<object class="NSColor" key="NSBGColor" id="1062305832">
 										<int key="NSColorSpace">6</int>
@@ -94,6 +96,7 @@
 							</object>
 							<string key="NSFrame">{{-1, -1}, {559, 435}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
+							<reference key="NSNextKeyView" ref="743854701"/>
 							<int key="NSsFlags">50</int>
 							<reference key="NSVScroller" ref="180171690"/>
 							<reference key="NSHScroller" ref="272176481"/>
@@ -448,7 +451,7 @@
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 			<object class="NSSplitView" id="462408779">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -485,7 +488,7 @@
 									<object class="NSTextField" id="488891865">
 										<reference key="NSNextResponder" ref="131893175"/>
 										<int key="NSvFlags">290</int>
-										<string key="NSFrame">{{17, 11}, {684, 11}}</string>
+										<string key="NSFrame">{{17, 11}, {644, 11}}</string>
 										<reference key="NSSuperview" ref="131893175"/>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="666599787">
@@ -524,6 +527,7 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{857, 613}</string>
+				<reference key="NSSuperview"/>
 				<bool key="NSIsVertical">YES</bool>
 				<int key="NSDividerStyle">2</int>
 			</object>
@@ -580,22 +584,6 @@
 					<int key="connectionID">100235</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: designSize</string>
-						<reference key="source" ref="488891865"/>
-						<reference key="destination" ref="512844837"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="488891865"/>
-							<reference key="NSDestination" ref="512844837"/>
-							<string key="NSLabel">value: designSize</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">designSize</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">100243</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">printView</string>
 						<reference key="source" ref="512844837"/>
@@ -626,6 +614,47 @@
 						<reference key="destination" ref="462408779"/>
 					</object>
 					<int key="connectionID">100259</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">displayPatternValue1: designSize</string>
+						<reference key="source" ref="488891865"/>
+						<reference key="destination" ref="512844837"/>
+						<object class="NSNibBindingConnector" key="connector" id="477087635">
+							<reference key="NSSource" ref="488891865"/>
+							<reference key="NSDestination" ref="512844837"/>
+							<string key="NSLabel">displayPatternValue1: designSize</string>
+							<string key="NSBinding">displayPatternValue1</string>
+							<string key="NSKeyPath">designSize</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSDisplayPattern</string>
+								<string key="NS.object.0">%{value1}@, %{value2}@ stitches</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">100294</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">displayPatternValue2: numStitches</string>
+						<reference key="source" ref="488891865"/>
+						<reference key="destination" ref="512844837"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="488891865"/>
+							<reference key="NSDestination" ref="512844837"/>
+							<string key="NSLabel">displayPatternValue2: numStitches</string>
+							<string key="NSBinding">displayPatternValue2</string>
+							<string key="NSKeyPath">numStitches</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSDisplayPattern</string>
+								<string key="NS.object.0">%{value1}@, %{value2}@ stitches</string>
+							</object>
+							<reference key="NSPreviousConnector" ref="477087635"/>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">100295</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1136,7 +1165,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{315, 269}, {857, 613}}</string>
+					<string>{{415, 305}, {857, 613}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>NoDividerSplitView</string>
@@ -1172,7 +1201,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100273</int>
+			<int key="maxID">100295</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
