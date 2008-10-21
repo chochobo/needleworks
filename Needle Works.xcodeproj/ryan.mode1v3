@@ -329,7 +329,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>945C51E10EA3D0F400252AD1</string>
+										<string>945C59DC0EAE7CA600252AD1</string>
 										<key>history</key>
 										<array>
 											<string>94B1FB780E8B4C32007A78F7</string>
@@ -349,7 +349,7 @@
 											<string>94A2F8F50E9FF07F00C29361</string>
 											<string>94A2F8F60E9FF07F00C29361</string>
 											<string>94A2F94A0EA00A9600C29361</string>
-											<string>94A2F94F0EA0252400C29361</string>
+											<string>945C51E10EA3D0F400252AD1</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -428,9 +428,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>945C51E20EA3D0F400252AD1</string>
+				<string>945C59DD0EAE7CA600252AD1</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>945C51E30EA3D0F400252AD1</string>
+				<string>945C59DE0EAE7CA600252AD1</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -564,10 +564,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>94028BA80E67C4BA001CD6B0</string>
-		<string>/Users/Shared/ryan/needleworks/Needle Works.xcodeproj</string>
+		<string>/Users/Shared/ryan/sandbox/needleworks/Needle Works.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>402 68 1120 1079 0 0 1920 1178 </string>

@@ -130,8 +130,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 245616875;
-			PBXWorkspaceStateSaveDate = 245616875;
+			PBXPerProjectTemplateStateSaveDate = 246316190;
+			PBXWorkspaceStateSaveDate = 246316190;
 		};
 		perUserProjectItems = {
 			94028BC90E67CAA3001CD6B0 = 94028BC90E67CAA3001CD6B0 /* PBXTextBookmark */;
@@ -146,7 +146,8 @@
 			94028C750E6A4736001CD6B0 = 94028C750E6A4736001CD6B0 /* PBXTextBookmark */;
 			94028CD40E6BB115001CD6B0 = 94028CD40E6BB115001CD6B0 /* PBXTextBookmark */;
 			94028CFF0E6BB6D0001CD6B0 = 94028CFF0E6BB6D0001CD6B0 /* PlistBookmark */;
-			945C51E10EA3D0F400252AD1 /* PBXTextBookmark */ = 945C51E10EA3D0F400252AD1 /* PBXTextBookmark */;
+			945C51E10EA3D0F400252AD1 = 945C51E10EA3D0F400252AD1 /* PBXTextBookmark */;
+			945C59DC0EAE7CA600252AD1 /* PBXTextBookmark */ = 945C59DC0EAE7CA600252AD1 /* PBXTextBookmark */;
 			94A2F8B90E9FDED000C29361 = 94A2F8B90E9FDED000C29361 /* PBXTextBookmark */;
 			94A2F8BA0E9FDED000C29361 = 94A2F8BA0E9FDED000C29361 /* PBXTextBookmark */;
 			94A2F8BB0E9FDED000C29361 = 94A2F8BB0E9FDED000C29361 /* PBXTextBookmark */;
@@ -415,10 +416,9 @@
 	};
 	94028B870E67C32F001CD6B0 /* MyDocument.m */ = {
 		uiCtxt = {
-			sepNavFolds = "{\n    c =     (\n                {\n            r = \"{2704, 162}\";\n            s = 0;\n        },\n                {\n            r = \"{2965, 27}\";\n            s = 0;\n        },\n                {\n            r = \"{3066, 1657}\";\n            s = 0;\n        },\n                {\n            r = \"{4953, 59}\";\n            s = 0;\n        },\n                {\n            r = \"{5105, 5542}\";\n            s = 0;\n        },\n                {\n            r = \"{14293, 85}\";\n            s = 0;\n        },\n                {\n            r = \"{14420, 38}\";\n            s = 0;\n        },\n                {\n            r = \"{14488, 23}\";\n            s = 0;\n        },\n                {\n            r = \"{14562, 62}\";\n            s = 0;\n        },\n                {\n            r = \"{14653, 22}\";\n            s = 0;\n        },\n                {\n            r = \"{14716, 89}\";\n            s = 0;\n        },\n                {\n            r = \"{14831, 20}\";\n            s = 0;\n        },\n                {\n            r = \"{14889, 90}\";\n            s = 0;\n        },\n                {\n            r = \"{15009, 27}\";\n            s = 0;\n        },\n                {\n            r = \"{15081, 113}\";\n            s = 0;\n        },\n                {\n            r = \"{15214, 14}\";\n            s = 0;\n        },\n                {\n            r = \"{15248, 14}\";\n            s = 0;\n        },\n                {\n            r = \"{15296, 21}\";\n            s = 0;\n        }\n    );\n    r = \"{0, 15590}\";\n    s = 0;\n}";
-			sepNavIntBoundsRect = "{{0, 0}, {851, 3728}}";
-			sepNavSelRange = "{4934, 0}";
-			sepNavVisRange = "{4528, 2272}";
+			sepNavIntBoundsRect = "{{0, 0}, {851, 8288}}";
+			sepNavSelRange = "{12376, 0}";
+			sepNavVisRange = "{11969, 2285}";
 			sepNavWindowFrame = "{{38, 248}, {750, 784}}";
 		};
 	};
@@ -574,6 +574,16 @@
 		rType = 0;
 		vrLen = 2272;
 		vrLoc = 11970;
+	};
+	945C59DC0EAE7CA600252AD1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 94028B870E67C32F001CD6B0 /* MyDocument.m */;
+		name = "MyDocument.m: 405";
+		rLen = 0;
+		rLoc = 12376;
+		rType = 0;
+		vrLen = 2285;
+		vrLoc = 11969;
 	};
 	945DDCC20E9873670029BC20 /* PrintView.m:56 */ = {
 		isa = PBXFileBreakpoint;
