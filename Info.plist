@@ -15,6 +15,10 @@
 			<string></string>
 			<key>CFBundleTypeName</key>
 			<string>PES Embroidery Design</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.brother.pes</string>
+			</array>
 			<key>CFBundleTypeOSTypes</key>
 			<array>
 				<string>.pes</string>
@@ -49,5 +53,25 @@
 	<string>NSApplication</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.5</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>PES Embroidery Design</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.brother.pes</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>pes</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>
