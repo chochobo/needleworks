@@ -1,4 +1,5 @@
 Needle Works is Copyright (C) 2008 Ryan Lovett <ryan@spacecoaster.org>
+Needle Works is Copyright (C) 2022 KyungTae Chung <chochobo@gmail.com>
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
