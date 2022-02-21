@@ -3,6 +3,7 @@ Needle Works is a PES embroidery file viewer for Mac OS X.
 
 ---
 Needle Works is Copyright (C) 2008 Ryan Lovett <ryan@spacecoaster.org>
+
 Needle Works is Copyright (C) 2022 KyungTae Chung <chochobo@gmail.com>
 
 This program is free software; you can redistribute it and/or
