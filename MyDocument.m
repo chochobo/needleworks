@@ -68,7 +68,7 @@
 				}*/
 				[[self colorLists] addObject:colorList];
 			} else {
-				NSLog(@"Cannot find %s color list\n", [path lastPathComponent]);
+                NSLog(@"Cannot find %@ color list\n", [path lastPathComponent]);
 			}
 			
 		}
@@ -383,8 +383,8 @@
     [printInfo setTopMargin:    marginTB];
     [printInfo setBottomMargin: marginTB];
 	
-	[printInfo setHorizontalPagination:NSFitPagination];
-	[printInfo setVerticalPagination:NSFitPagination];
+    [printInfo setHorizontalPagination:NSPrintingPaginationModeFit];
+    [printInfo setVerticalPagination:NSPrintingPaginationModeFit];
 	//[printInfo setHorizontallyCentered:NO];
 	//[printInfo setVerticallyCentered:NO];
 	
@@ -401,7 +401,7 @@
 	
 	// Set our printed design view's bounds and save it
 	NSRect npb;
-	if ([printInfo orientation] == NSPortraitOrientation) {
+    if ([printInfo orientation] == NSPaperOrientationPortrait) {
 		if (origPrintViewSizePortrait.width == 0 && origPrintViewSizePortrait.height == 0) {
 			origPrintViewSizePortrait = [printView bounds].size;
 		}		
