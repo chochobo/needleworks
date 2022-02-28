@@ -416,7 +416,7 @@
 	}
 	
 	// Fetch the print scale preference
-	int printScale = [[NSUserDefaults standardUserDefaults] integerForKey:@"printScale"];
+	NSInteger printScale = [[NSUserDefaults standardUserDefaults] integerForKey:@"printScale"];
 
 	// User wants the printed size scaled to fit
 	if (printScale == 1) {

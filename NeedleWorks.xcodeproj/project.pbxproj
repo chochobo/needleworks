@@ -58,6 +58,7 @@
 		94C97FCF0E96D7590090FD3B /* PrintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintView.m; sourceTree = "<group>"; };
 		94FC42260E9D41DB00A3B54D /* LegendPrintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegendPrintView.h; sourceTree = "<group>"; };
 		94FC42270E9D41DB00A3B54D /* LegendPrintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegendPrintView.m; sourceTree = "<group>"; };
+		B9044F8B27C3489A00518123 /* NeedleWorks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NeedleWorks.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +102,7 @@
 		2A37F4AAFDCFA73011CA2CEA /* Needle Works */ = {
 			isa = PBXGroup;
 			children = (
+				B9044F8B27C3489A00518123 /* NeedleWorks.entitlements */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
@@ -290,6 +292,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = NeedleWorks.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -309,6 +312,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = NeedleWorks.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;

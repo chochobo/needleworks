@@ -107,7 +107,7 @@
     if ([self inLiveResize]) {
 		// A change in size has required the view to be invalidated.
         NSRect rects[4];
-        int count;
+        NSInteger count;
 		
         [self getRectsExposedDuringLiveResize:rects count:&count];
 		

@@ -24,7 +24,6 @@
 
 
 @implementation InspectorPanelController
-
 @synthesize inspectedDocument;
 
 

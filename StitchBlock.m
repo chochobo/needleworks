@@ -34,7 +34,7 @@
 /* This color map comes from the Embroidery Reader code */
 - (void) setColorIndex:(NSUInteger) index {
 	colorIndex = index;
-	r = 0, g = 0, b = 0;
+    (void)(r = 0), (void)(g = 0), (void)(b = 0);
 	
 	switch (colorIndex) {
 		case 1:
